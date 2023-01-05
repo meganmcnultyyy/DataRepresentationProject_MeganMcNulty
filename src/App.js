@@ -1,8 +1,5 @@
 import './App.css';
 import React from 'react';
-import { Content } from './components/content'; // Import content component
-import { Header } from './components/header'; // Import header component
-import { Footer } from './components/footer'; // Import footer component
 import 'bootstrap/dist/css/bootstrap.min.css'; // Bootstrap StyleSheet
 import Container from 'react-bootstrap/Container'; // Bootstrap Navbar
 import Nav from 'react-bootstrap/Nav'; // Bootstrap Navbar
@@ -12,9 +9,9 @@ import {
   Route,
   Routes,
 } from "react-router-dom"; // Importing Routing 
-import { Read } from './components/read'; // Read Class from read.js
-import { Create } from './components/create'; // Create Class from create.js
-import { Edit } from './components/edit'; // Import edit component
+import { AllAssessments } from './components/allAssessments'; // Read Class from allAssessments.js
+import { CreateAssessment } from './components/createAssessment'; // Create Class from createAssessments.js
+import { EditAssessment } from './components/editAssessment'; // Import editAssessment component
 
 
 class App extends React.Component { // Changing to a function and extneds React Component to make the class a component
@@ -24,26 +21,21 @@ class App extends React.Component { // Changing to a function and extneds React 
     return ( //  output of the method or function.
       <Router> {/* Routing */}
         <div className="App">
-          <Navbar bg="primary" variant="dark"> {/* Bootstrap Navbar */}
+          <Navbar className="colour-nav justify-content-center" variant="dark"> {/* Bootstrap Navbar */}
             <Container>
               <Nav className="me-auto">
-                <Nav.Link href="/">Home</Nav.Link> {/* Navbar Links  */}
-                <Nav.Link href="/read">Read</Nav.Link>
-                <Nav.Link href="/create">Create</Nav.Link>
+                <Nav.Link href="/allAssessments">Assessments</Nav.Link> {/* Navbar Links  */}
+                <Nav.Link href="/createAssessment">New Assessment</Nav.Link>
               </Nav>
             </Container>
           </Navbar>
 
           <Routes> {/* Routing the navbar to display the content, read and footer components */}
-            <Route path='/' element={<Content></Content>} exact></Route>
-            <Route path='/read' element={<Read></Read>} exact></Route>
-            <Route path='/create' element={<Create></Create>} exact></Route>
-            <Route path='/edit/:id' element={<Edit></Edit>}></Route> {/* Routing to show Edit Component */}
+            <Route path='/' element={<AllAssessments></AllAssessments>} exact></Route>
+            <Route path='/allAssessments' element={<AllAssessments></AllAssessments>} exact></Route>
+            <Route path='/createAssessment' element={<CreateAssessment></CreateAssessment>} exact></Route>
+            <Route path='/editAssessment/:id' element={<EditAssessment></EditAssessment>}></Route> {/* Routing to show Edit Component */}
           </Routes>
-
-          {/*<Header></Header> {/* Import header class from header component*/}
-          {/*<Content></Content> {/* Import content class from content component*/}
-          {/*<Footer></Footer> {/* Import footer class from footer component*/}
         </div>
       </Router>
     );

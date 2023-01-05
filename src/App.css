@@ -1,5 +1,8 @@
 .App {
   text-align: center;
+  
+  align-items: center;
+  justify-content: center;
 }
 
 .App-logo {
@@ -11,6 +14,23 @@
   .App-logo {
     animation: App-logo-spin infinite 20s linear;
   }
+}
+
+.editBtn{
+  background-color: darkblue;
+}
+
+.deleteBtn{
+  background-color: indianred;
+}
+
+.card{
+  margin-left: 10%;
+}
+
+.colour-nav{
+  width: 100%;
+  background-color:darkorchid;
 }
 
 .App-header {
