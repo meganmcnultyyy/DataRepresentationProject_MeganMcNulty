@@ -9,8 +9,8 @@ import {
   Route,
   Routes,
 } from "react-router-dom"; // Importing Routing 
-import { AllAssessments } from './components/allAssessments'; // Read Class from allAssessments.js
-import { CreateAssessment } from './components/createAssessment'; // Create Class from createAssessments.js
+import { AllAssessments } from './components/allAssessments'; // All Assessments Class from allAssessments.js
+import { CreateAssessment } from './components/createAssessment'; // Create Assessments Class from createAssessments.js
 import { EditAssessment } from './components/editAssessment'; // Import editAssessment component
 
 
@@ -30,11 +30,11 @@ class App extends React.Component { // Changing to a function and extneds React 
             </Container>
           </Navbar>
 
-          <Routes> {/* Routing the navbar to display the content, read and footer components */}
+          <Routes> {/* Routing the navbar to display the All Assessments and create assessment components */}
             <Route path='/' element={<AllAssessments></AllAssessments>} exact></Route>
             <Route path='/allAssessments' element={<AllAssessments></AllAssessments>} exact></Route>
             <Route path='/createAssessment' element={<CreateAssessment></CreateAssessment>} exact></Route>
-            <Route path='/editAssessment/:id' element={<EditAssessment></EditAssessment>}></Route> {/* Routing to show Edit Component */}
+            <Route path='/editAssessment/:id' element={<EditAssessment></EditAssessment>}></Route> {/* Routing to show Edit Assessment  Component */}
           </Routes>
         </div>
       </Router>

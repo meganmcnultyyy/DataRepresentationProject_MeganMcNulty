@@ -34,7 +34,7 @@ export function EditAssessment(props) {
                 console.log(error);
             })
     }, []);
-    const handleSubmit = (event) => { // Sends record back to database // edit book calls handleSubmit
+    const handleSubmit = (event) => { // Sends record back to database // edit assessment calls handleSubmit
         event.preventDefault();
         const newAssessment = { // Generate new object
             id: id,
@@ -46,7 +46,7 @@ export function EditAssessment(props) {
         axios.put('http://localhost:4000/api/assessment/' + id, newAssessment) // Axois called to overwrite // pass up new object
             .then((res) => {
                 console.log(res.data); // response is the new editted data displayed to the console
-                navigate('/allAssessments'); // navigates page back to /read after edited 
+                navigate('/allAssessments'); // navigates page back to /allAssessments after edited 
             });
     }
     return (

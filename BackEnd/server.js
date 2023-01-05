@@ -29,7 +29,7 @@ async function main() { // Connection string from MongoDB with username and pass
   await mongoose.connect('mongodb+srv://admin:admin@cluster0.kugj5io.mongodb.net/?retryWrites=true&w=majority'); 
 }
 
-const assessmentSchema = new mongoose.Schema({ // Defining my Book Schema 
+const assessmentSchema = new mongoose.Schema({ // Defining my Assessment Schema 
     heading: String,
     module: String,
     overview: String,
@@ -42,7 +42,7 @@ const assessmentModel = mongoose.model('assessments', assessmentSchema); // Comp
 
 app.post('/api/assessments', (req, res) => { // Post embeds data in the body of the http
     console.log(req.body); // Parse the body of the data posted up 
-    assessmentModel.create({ // Use the book model and create a new document
+    assessmentModel.create({ // Use the assessment model and create a new document
         heading:req.body.heading,
         module:req.body.module,
         overview:req.body.overview,
@@ -78,7 +78,7 @@ app.get('/api/assessment/:id',(req,res)=>{ // Searching DB for id
     })
 })
 
-app.delete('/api/assessment/:id', (req,res)=>{ // Listen for HTTP request, find book and delete
+app.delete('/api/assessment/:id', (req,res)=>{ // Listen for HTTP request, find assessment and delete
     console.log("Deleting Assessment with the ID: "+req.params.id)
 
     assessmentModel.deleteOne({_id:req.params.id}, (error,data)=>{ //Passing id and once deleted send back data/error

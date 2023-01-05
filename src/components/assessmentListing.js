@@ -11,14 +11,14 @@ export class AssessmentListing extends React.Component {
         this.DeleteAssessment = this.DeleteAssessment.bind(this);
     }
 
-    DeleteAssessment(e){ {/* Delete Book Method */}
+    DeleteAssessment(e){ {/* Delete Assessment Method */}
         e.preventDefault();
         axios.delete('http://localhost:4000/api/assessment/'+this.props.assessment._id)
         .then(()=>{this.props.ReloadData()}) // once deleted, call this function 
         .catch();
     }
 
-    render() {
+    render() { // card displays with apis
         return (
             <div className="cardCSS">
                 <br></br>

@@ -20,7 +20,7 @@ export class CreateAssessment extends React.Component { //Accessing the React Fu
         }
     }
 
-    handleSubmit(e) { // When Add Book button is clicked it will invoke this method
+    handleSubmit(e) { // When Add Assessment button is clicked it will invoke this method
         e.preventDefault(); // cancels the event, action of the event will not occur
        
         console.log(`button clicked
@@ -79,7 +79,7 @@ export class CreateAssessment extends React.Component { //Accessing the React Fu
                 <br></br>
                 <h3>Add a new Assessment to your list</h3>
                 <br />
-                <form onSubmit={this.handleSubmit}> {/* Book Title Form with submission button */}
+                <form onSubmit={this.handleSubmit}> {/* Assessment Form with submission button */}
                     <div className="form-group">
                         <label>Add Assessment Heading: </label>
                         <input type="text"
