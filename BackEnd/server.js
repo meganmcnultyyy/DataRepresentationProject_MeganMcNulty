@@ -9,6 +9,12 @@ app.use(bodyParser.urlencoded({ extended: false }))
 // parse application/json
 app.use(bodyParser.json())
 
+const path = require('path');
+// Location of Build Folder
+app.use(express.static(path.join(__dirname, '../build')));
+// Location of Static Folder
+app.use('/static', express.static(path.join(__dirname, 'build//static')));
+
 // Avoiding the CORS Error. A standard that allows the server to relax the same origin policy
 const cors = require('cors'); 
 app.use(cors());
@@ -85,6 +91,12 @@ app.delete('/api/assessment/:id', (req,res)=>{ // Listen for HTTP request, find 
       res.send(data); // returning data
     })
 })
+
+// When going to any other URL, index.html will be returned
+app.get('*', (req,res) =>{
+  res.sendFile(path.join(__dirname+'/../build/index.html'));
+  });
+  
 
 app.listen(port, () => {
   console.log(`Example app listening on port ${port}`)
